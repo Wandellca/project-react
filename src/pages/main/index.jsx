@@ -1,0 +1,23 @@
+import React, { Component } from 'react';
+import api from '../../services/api';
+
+
+export default class Main extends Component {
+  // estado sempre é umobjeto
+  state = {
+    products: {},
+  }
+
+  componentDidMount() {
+    this.loadProducts();
+  }
+
+  loadProducts = async () => {
+    const response = await api.get("/products");
+    console.log(response.data.docs);
+  };
+
+  render() {
+    return <h1>Olá br</h1>
+  }
+}
